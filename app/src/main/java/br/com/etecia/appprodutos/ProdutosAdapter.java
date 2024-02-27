@@ -1,10 +1,12 @@
 package br.com.etecia.appprodutos;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,16 +32,35 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
+
+        //instanciar modelo para receber os dados
+        View view;
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        view = inflater.inflate(R.layout.modelo_produtos, parent, false);
+
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.txtProduto.setText(ListaProdutos.get(position).getDescricao());
+        holder.imgProduto.setImageResource(ListaProdutos.get(position).getImagem());
+        //clique no cardview do modelo
 
+        holder.cardProduto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"TESTE", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
-        return 0;
+        return ListaProdutos.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
