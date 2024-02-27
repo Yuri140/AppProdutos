@@ -23,10 +23,16 @@ List<Produtos> ListaProdutos;
         ListaProdutos = new ArrayList<>();
         //lista produtos
 
+        ListaProdutos.add(
+                new Produtos("Cueca Rei",R.drawable.cueca,8,200.00);
+                new Produtos("Mouse",R.drawable.mouse,6,600.50 );
+        );
+
         ProdutosAdapter adapter = new ProdutosAdapter(getApplicationContext(),ListaProdutos);
 
         idRecViewProdutos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
 
+       // idRecViewProdutos.hasFixedSize()
         idRecViewProdutos.setAdapter(adapter);
     }
 }

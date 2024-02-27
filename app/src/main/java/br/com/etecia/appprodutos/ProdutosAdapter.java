@@ -34,7 +34,9 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
         return null;
 
         //instanciar modelo para receber os dados
+
         View view;
+
         LayoutInflater inflater = LayoutInflater.from(context);
 
         view = inflater.inflate(R.layout.modelo_produtos, parent, false);
